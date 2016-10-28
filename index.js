@@ -40,7 +40,15 @@ log.config = function config(options) {
 };
 
 log.time = function time(name) {
-  timeRecord[name] = Date.now();
+  const now = Date.now();
+
+  if (name) {
+    return timeRecord[name] = now;
+  }
+
+  return {
+    end: () => Date.now() - now
+  }
 };
 log.timeEnd = function timeEnd(name) {
   const start = timeRecord[name];
