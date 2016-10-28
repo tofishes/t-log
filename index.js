@@ -16,15 +16,18 @@ function log(type, argItems) {
   }
 
   // 转换arguments为真正数组
-  const items = Array.prototype.slice.call(argItems);
+  const items = Array.prototype.slice.call(argItems).map(item => {
+    try {
+      return JSON.stringify(item, null, 2);
+    } catch(e) {
+      return item;
+    }
+  });
 
   const start = `\u001b[${colorMap[type]}m`;
   const end = '\u001b[39m';
 
-  items.splice(0, 0, start);
-  items.push(end);
-
-  console.log.apply(null, items); // eslint-disable-line no-console
+  console.log(start + items.join('\n') + end); // eslint-disable-line no-console
 }
 
 const types = Object.keys(colorMap);
