@@ -15,4 +15,9 @@ log.error('error...');
 log.time('name');
 ... // doSomething
 const consuming = log.timeEnd('name');
+
+// if not time name
+const timer = log.time();
+... // doSomething
+const consuming = timer.end();
 ```
