@@ -21,3 +21,6 @@ const timer = log.time();
 ... // doSomething
 const consuming = timer.end();
 ```
+### release
+* v1.0.2 when json.stringify content is empty, use origin content;
+* v1.0.1 add new usage of log.time()
