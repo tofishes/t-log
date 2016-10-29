@@ -18,7 +18,9 @@ function log(type, argItems) {
   // 转换arguments为真正数组
   const items = Array.prototype.slice.call(argItems).map(item => {
     try {
-      return JSON.stringify(item, null, 2);
+      const itemify = JSON.stringify(item, null, 2);
+
+      return itemify || item;
     } catch(e) {
       return item;
     }
