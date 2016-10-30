@@ -28,7 +28,7 @@ function log(type, argItems) {
   const items = Array.prototype.slice.call(argItems).map(item => {
     try {
       return pretyJSON(item);
-    } catch(e) {
+    } catch (e) {
       return item;
     }
   });
@@ -36,7 +36,10 @@ function log(type, argItems) {
   const start = `\u001b[${colorMap[type]}m`;
   const end = '\u001b[39m';
 
-  console.log(start + items.join(' ') + end); // eslint-disable-line no-console
+  items.splice(0, 0, start);
+  items.push(end);
+
+  console.log.apply(null, items); // eslint-disable-line no-console
 }
 
 const types = Object.keys(colorMap);
@@ -55,12 +58,13 @@ log.time = function time(name) {
   const now = Date.now();
 
   if (name) {
-    return timeRecord[name] = now;
+    timeRecord[name] = now;
+    return name;
   }
 
   return {
     end: () => Date.now() - now
-  }
+  };
 };
 log.timeEnd = function timeEnd(name) {
   const start = timeRecord[name];
