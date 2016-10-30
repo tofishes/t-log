@@ -10,6 +10,15 @@ const colorMap = {
 };
 const timeRecord = {};
 
+function isEmpty(obj) {
+  return !!obj && Object.keys(obj).length === 0;
+}
+
+function pretyJSON(json) {
+  const ify = JSON.stringify(json, null, 2);
+  return isEmpty(JSON.parse(ify)) ? json : ify;
+}
+
 function log(type, argItems) {
   if (isProduction) {
     return;
@@ -18,9 +27,7 @@ function log(type, argItems) {
   // 转换arguments为真正数组
   const items = Array.prototype.slice.call(argItems).map(item => {
     try {
-      const itemify = JSON.stringify(item, null, 2);
-
-      return itemify || item;
+      return pretyJSON(item);
     } catch(e) {
       return item;
     }
@@ -29,7 +36,7 @@ function log(type, argItems) {
   const start = `\u001b[${colorMap[type]}m`;
   const end = '\u001b[39m';
 
-  console.log(start + items.join('\n') + end); // eslint-disable-line no-console
+  console.log(start + items.join(' ') + end); // eslint-disable-line no-console
 }
 
 const types = Object.keys(colorMap);

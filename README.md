@@ -22,5 +22,6 @@ const timer = log.time();
 const consuming = timer.end();
 ```
 ### release
-* v1.0.2 when json.stringify content is empty, use origin content;
-* v1.0.1 add new usage of log.time()
+* v1.0.3 adjust printing, no auto newline.
+* v1.0.2 when json.stringify content is empty, use origin content.
+* v1.0.1 add new usage of log.time().
