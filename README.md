@@ -22,6 +22,7 @@ const timer = log.time();
 const consuming = timer.end();
 ```
 ### release
+* v1.0.5 json.stringify exclude String type.
 * v1.0.4 use console.log.apply.
 * v1.0.3 adjust printing, no auto newline.
 * v1.0.2 when json.stringify content is empty, use origin content.
