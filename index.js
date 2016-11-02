@@ -15,6 +15,10 @@ function isEmpty(obj) {
 }
 
 function pretyJSON(json) {
+  if (json.substr) {
+    return json;
+  }
+
   const ify = JSON.stringify(json, null, 2);
   return isEmpty(JSON.parse(ify)) ? json : ify;
 }
