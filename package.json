@@ -15,7 +15,7 @@
     "console"
   ],
   "author": "tofishes",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tofishes/t-log/issues"
   },
