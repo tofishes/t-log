@@ -23,7 +23,7 @@ const consuming = timer.end();
 ```
 
 ```
-// 1.0.6 add .start api
+// 1.0.8 add .start api
 const timer = log.start('task');
 setTimeout(function () {
   timer.end();
@@ -35,7 +35,7 @@ setTimeout(function () {
 ```
 
 ### release
-* v1.0.6 add .start api.
+* v1.0.8 add .start api.
 * v1.0.5 json.stringify exclude String type.
 * v1.0.4 use console.log.apply.
 * v1.0.3 adjust printing, no auto newline.
