@@ -117,10 +117,5 @@ log.start = function start(name) {
   }
 }
 
-const timer = log.start('css');
-setTimeout(function () {
-  timer.end();
-}, 2)
-
 module.exports = log;
 
