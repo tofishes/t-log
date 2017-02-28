@@ -21,7 +21,21 @@ const timer = log.time();
 ... // doSomething
 const consuming = timer.end();
 ```
+
+```
+// 1.0.6 add .start api
+const timer = log.start('task');
+setTimeout(function () {
+  timer.end();
+}, 2)
+
+// output:
+// Start task ...
+// Finished task after 26ms
+```
+
 ### release
+* v1.0.6 add .start api.
 * v1.0.5 json.stringify exclude String type.
 * v1.0.4 use console.log.apply.
 * v1.0.3 adjust printing, no auto newline.

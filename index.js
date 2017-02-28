@@ -83,5 +83,44 @@ log.timeEnd = function timeEnd(name) {
   return null;
 };
 
+const μs = 1e3;
+const ms = 1e6;
+const s = 1e9;
+
+function autoTime(time) {
+  if (time > s) {
+    return Number(time / s).toFixed(3) + 's';
+  }
+
+  if (time > ms) {
+    return Number(time / ms).toFixed(0) + 'ms';
+  }
+
+  if (time > μs) {
+    return Number(time / μs).toFixed(0) + 'μs';
+  }
+
+  return '0s';
+}
+
+log.start = function start(name) {
+  const timer = process.hrtime();
+  log.info('Start', name, '...');
+
+  return {
+    end: () => {
+      const diff = process.hrtime(timer);
+      const nanos = diff[0] * s + diff[1];
+
+      log.error('Finished', name, 'after', autoTime(nanos));
+    }
+  }
+}
+
+const timer = log.start('css');
+setTimeout(function () {
+  timer.end();
+}, 2)
+
 module.exports = log;
 
