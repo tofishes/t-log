@@ -1,5 +1,7 @@
 ## color console log
 
+![color screenshot](colors.png)
+
 ### use:
 
 ```
