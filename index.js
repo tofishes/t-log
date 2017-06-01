@@ -1,12 +1,21 @@
-// red: [31, 39],green: [32, 39],yellow: [33, 39],blue: [34, 39],magenta: [35, 39],cyan: [36, 39],
+// red: [31, 39],
+// green: [32, 39],
+// yellow: [33, 39],
+// purple: [34, 39],
+// magenta: [35, 39],
+// cyan: [36, 39],
+// white: [37, 39],
+// gray: [90, 39],
+// grey: [90, 39],
+// from https://github.com/Marak/colors.js/blob/master/lib/styles.js
 const env = process.env.NODE_ENV || 'development';
 let isProduction = env === 'production';
 const colorMap = {
   'error': 31,
-  'info': 36,
   'success': 32,
-  'debug': 33,
-  'warn': 34
+  'warn': 33,
+  'debug': 36,
+  'info': 37
 };
 const timeRecord = {};
 
